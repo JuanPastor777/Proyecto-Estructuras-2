@@ -30,7 +30,7 @@ if __name__ == "__main__":
                 nuevo_proveedor = Proveedor(nombre, tipo_servicio, calificacion)
                 
                 # Insertar en el árbol B (clave=ID, valor=objeto Proveedor completo)
-                tree.insert(nuevo_proveedor.id, nuevo_proveedor)
+                tree.insert(nuevo_proveedor)
 
                 print(f"✅ Proveedor registrado correctamente con ID {nuevo_proveedor.id}")
                 print(f"Datos almacenados: {nuevo_proveedor.__dict__}\n")
