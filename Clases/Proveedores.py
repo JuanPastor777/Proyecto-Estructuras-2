@@ -7,4 +7,11 @@ class Proveedor:
         self.calificacion = calificacion
         self.nombre = nombre
         self.tipo_servicio = tipo_servicio
+
+    def __lt__(self, other):
+        return self.id < other.id
+    def __gt__(self, other):
+        return self.id > other.id
+    def __eq__(self, other):
+        return  self.id == other.id
         
