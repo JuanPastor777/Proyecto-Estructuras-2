@@ -1,5 +1,5 @@
 from math import ceil
-from nodo import Node
+from .nodo import Node
 class BTree:
     def __init__(self, m):
         self.order = m

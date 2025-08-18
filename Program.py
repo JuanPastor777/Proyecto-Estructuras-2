@@ -1,7 +1,7 @@
 ﻿from Arbol.Arbol import BTree
 from Clases.Proveedores import Proveedor
 if __name__ == "__main__":
-    tree = BTree()  
+    tree = BTree(4)
     proveedores = []  # almacena provvedores
 
     while True:
