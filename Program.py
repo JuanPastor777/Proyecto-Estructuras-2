@@ -1,57 +1,43 @@
 ﻿from Arbol.Arbol import BTree
 from Clases.Proveedores import Proveedor
+
 if __name__ == "__main__":
+    # Árbol B donde la clave será el ID y el valor el objeto Proveedor completo
     tree = BTree(4)
-    proveedores = []  # almacena provvedores
 
     while True:
-        print("     MENu PARa GESTIoN DE PROVEEDORES  ")
+        print("\n     MENÚ PARA GESTIÓN DE PROVEEDORES  ")
         print(" 1. Registrar proveedor               ")
         print(" 2. Buscar por tipo de servicio       ")
         print(" 3. Mostrar proveedores por nombre    ")
-        print(" 4. Mostrar proveedores por calificaciion ")
+        print(" 4. Mostrar proveedores por calificación ")
         print(" 5. Salir ")
 
-        opcion = input("selecciona una opcion: ")
+        opcion = input("Selecciona una opción: ")
 
         if opcion == "1":
-            print(" Registro de nuevo proveedor ")
+            print("\n--- Registro de nuevo proveedor ---")
             try:
-                id_trabajador = int(input("Ingrese el ID: "))
-                # esto verifica si el ID existe
-                existe = False
-                for p in proveedores:
-                    if p["id"] == id_trabajador:
-                        existe = True
-                        break
-                if existe:
-                    print("Ya existe un proveedor con este ID, puede intebtar con otro.")
-                    continue
-
-                nombre = input("Nombre del trabajador: ")
+                nombre = input("Nombre del proveedor: ")
                 tipo_servicio = input("Tipo de servicio: ")
-                calificacion = int(input("calificacion de 1 o 5 estrellas: "))
-                
+                calificacion = int(input("Calificación (1 a 5 estrellas): "))
+
                 if calificacion < 1 or calificacion > 5:
-                    print(" la calificacion debe de ser entre 1 y 5.")
+                    print("⚠️ La calificación debe ser entre 1 y 5.\n")
                     continue
 
-                proveedor = {
-                    "id": id_trabajador,
-                    "nombre": nombre,
-                    "servicio": tipo_servicio,
-                    "calificacion": calificacion
-                }
+                # Crear el objeto Proveedor (el ID se genera automáticamente)
+                nuevo_proveedor = Proveedor(nombre, tipo_servicio, calificacion)
+                
+                # Insertar en el árbol B (clave=ID, valor=objeto Proveedor completo)
+                tree.insert(nuevo_proveedor.id, nuevo_proveedor)
 
-                proveedores.append(proveedor)
-                tree.insert(id_trabajador)  # esto es para insertar solo el ID en el árbol
+                print(f"✅ Proveedor registrado correctamente con ID {nuevo_proveedor.id}")
+                print(f"Datos almacenados: {nuevo_proveedor.__dict__}\n")
 
-                print("El Proveedor se registro correctamente.")
             except ValueError:
-                print(" ingresa un vaor que sea valido.")
-
+                print("⚠️ Ingresa un valor válido.\n")
 
         elif opcion == "5":
             print("Gracias por usar el programa")
             break
-      
