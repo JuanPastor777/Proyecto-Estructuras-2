@@ -30,3 +30,12 @@ class BTree:
         self.root.traverse_inorder()
         print()
 
+    def inorder(self):
+        return self.root.inorder()
+
+    def search_by_service(self, servicio):
+        resultados = []
+        for prov in self.inorder():
+            if prov.tipo_servicio.lower() == servicio.lower():
+                resultados.append(prov)
+        return resultados

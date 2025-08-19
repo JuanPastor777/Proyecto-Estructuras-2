@@ -37,6 +37,15 @@ if __name__ == "__main__":
 
             except ValueError:
                 print("⚠️ Ingresa un valor válido.\n")
+        elif opcion == "2":
+            servicio = input("Ingrese el tipo de servicio a buscar: ")
+            resultados = tree.search_by_service(servicio)
+            if resultados:
+                print(f"\nProveedores que ofrecen: {servicio}:")
+                for proveedor in resultados:
+                    print(proveedor)
+            else:
+                print(f"No se encontraron proveedores que ofrezcan '{servicio}'.")
 
         elif opcion == "5":
             print("Gracias por usar el programa")

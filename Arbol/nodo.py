@@ -77,3 +77,12 @@ class Node:
                 queue.append((child, level + 1))
         return result
 
+    def inorder(self):
+        elementos = []
+        for i in range(len(self.keys)):
+            if not self.leaf:
+                elementos.extend(self.children[i].inorder())
+            elementos.append(self.keys[i])
+        if not self.leaf:
+            elementos.extend(self.children[-1].inorder())
+        return elementos

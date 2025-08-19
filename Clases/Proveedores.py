@@ -7,6 +7,13 @@ class Proveedor:
         self.calificacion = calificacion
         self.nombre = nombre
         self.tipo_servicio = tipo_servicio
+    def __str__(self):
+        estrellas = "★" * int(self.calificacion) + "☆" * (5 - int(self.calificacion))
+        return f"ID:{self.id} Nombre: {self.nombre} Servicio: {self.tipo_servicio}  Calificación: {estrellas} {self.calificacion}"
+
+
+    def __repr__(self):
+        return str(self)
 
     def __lt__(self, other):
         return self.id < other.id
