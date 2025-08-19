@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USUARIO\\Nueva carpeta\\ProyectoStruc\\ProyectoStruc.csproj": {}
+    "C:\\Users\\LAPTOP\\Documents\\Proyecto-Estructuras-2\\ProyectoStruc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USUARIO\\Nueva carpeta\\ProyectoStruc\\ProyectoStruc.csproj": {
+    "C:\\Users\\LAPTOP\\Documents\\Proyecto-Estructuras-2\\ProyectoStruc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Nueva carpeta\\ProyectoStruc\\ProyectoStruc.csproj",
+        "projectUniqueName": "C:\\Users\\LAPTOP\\Documents\\Proyecto-Estructuras-2\\ProyectoStruc.csproj",
         "projectName": "ProyectoStruc",
-        "projectPath": "C:\\Users\\USUARIO\\Nueva carpeta\\ProyectoStruc\\ProyectoStruc.csproj",
-        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Nueva carpeta\\ProyectoStruc\\obj\\",
+        "projectPath": "C:\\Users\\LAPTOP\\Documents\\Proyecto-Estructuras-2\\ProyectoStruc.csproj",
+        "packagesPath": "C:\\Users\\LAPTOP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LAPTOP\\Documents\\Proyecto-Estructuras-2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LAPTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
