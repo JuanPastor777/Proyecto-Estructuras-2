@@ -46,6 +46,14 @@ if __name__ == "__main__":
                     print(proveedor)
             else:
                 print(f"No se encontraron proveedores que ofrezcan '{servicio}'.")
+        elif opcion == "4":
+            print("\n--- Mostrar proveedores por calificación ---")
+            print("Proveedores desde el mejor al peor:")
+            proveedores = tree.obtener_proveedores()
+            proveedores.sort(key=lambda p: p.calificacion, reverse=True)
+
+            for p in proveedores:
+                print(f"Nombre: {p.nombre} - Servicio: {p.tipo_servicio} - Calificación: {p.calificacion}⭐ ")
 
         elif opcion == "5":
             print("Gracias por usar el programa")

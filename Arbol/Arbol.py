@@ -39,3 +39,17 @@ class BTree:
             if prov.tipo_servicio.lower() == servicio.lower():
                 resultados.append(prov)
         return resultados
+    def obtener_proveedores(arbol):
+        lista = []
+
+        def recorrer(nodo):
+            for i in range(len(nodo.keys)):
+                if not nodo.leaf:
+                    recorrer(nodo.children[i])
+                lista.append(nodo.keys[i])  
+            if not nodo.leaf:
+                recorrer(nodo.children[-1])
+
+        recorrer(arbol.root)
+        return lista
+
