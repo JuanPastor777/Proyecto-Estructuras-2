@@ -2,7 +2,7 @@
 from Clases.Proveedores import Proveedor
 
 if __name__ == "__main__":
-    # Árbol B donde la clave será el ID y el valor el objeto Proveedor completo
+   
     tree = BTree(4)
 
     while True:
@@ -20,32 +20,44 @@ if __name__ == "__main__":
             try:
                 nombre = input("Nombre del proveedor: ")
                 tipo_servicio = input("Tipo de servicio: ")
+                ubicacion = input("Ubicación: ")
                 calificacion = int(input("Calificación (1 a 5 estrellas): "))
 
                 if calificacion < 1 or calificacion > 5:
-                    print("⚠️ La calificación debe ser entre 1 y 5.\n")
+                    print("La calificación debe ser entre 1 y 5.\n")
                     continue
 
-                # Crear el objeto Proveedor (el ID se genera automáticamente)
-                nuevo_proveedor = Proveedor(nombre, tipo_servicio, calificacion)
+                # Crear el objeto Proveedor 
+                nuevo_proveedor = Proveedor(nombre, tipo_servicio, ubicacion, calificacion)
                 
-                # Insertar en el árbol B (clave=ID, valor=objeto Proveedor completo)
+                # Insertar el nuevo proveedor en el arbol 
                 tree.insert(nuevo_proveedor)
 
-                print(f"✅ Proveedor registrado correctamente con ID {nuevo_proveedor.id}")
+                print(f"Proveedor registrado correctamente con ID {nuevo_proveedor.id}")
                 print(f"Datos almacenados: {nuevo_proveedor.__dict__}\n")
 
             except ValueError:
-                print("⚠️ Ingresa un valor válido.\n")
+                print("Ingresa un valor válido.\n")
+                
         elif opcion == "2":
-            servicio = input("Ingrese el tipo de servicio a buscar: ")
+            servicio = input("Ingrese el tipo de servicio a buscar: ").lower()
             resultados = tree.search_by_service(servicio)
+            orden = input("Ingrese  para mostrar en orden (c) para calificacion o (n) para nombre: ").lower()
+            while orden != 'c' and orden != 'n':
+                print("Opcion no valida, por favor  ingrese (c) para calificacion o (n) para nombre.")
+                orden = input("Ingrese  para mostrar en orden (c) para calificacion o (n) para nombre: ").lower()       
+           
             if resultados:
-                print(f"\nProveedores que ofrecen: {servicio}:")
-                for proveedor in resultados:
-                    print(proveedor)
+               if orden == 'c':
+                    resultados.sort(key=lambda p: p.calificacion, reverse=True)
+                    for proveedores in resultados:
+                        print(proveedores)
+               if orden == 'n':
+                    resultados.sort(key=lambda p: p.nombre.lower())
+                    for proveedores in resultados:
+                        print(proveedores)
             else:
-                print(f"No se encontraron proveedores que ofrezcan '{servicio}'.")
+                print(f"No se encontraron proveedores que ofrezcan:  {servicio}")
 
         elif opcion == "3":
             print(" Mostrar proveedores por nombre ")
